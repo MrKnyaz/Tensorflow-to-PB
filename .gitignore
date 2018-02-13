@@ -1,2 +1,5 @@
-java_code/.gradle/4.3/fileChanges/last-build.bin
-java_code/.gradle/4.3/fileHashes/fileHashes.lock
+*.iml
+java_code/out
+java_code/.gradle
+*.iws
+*.ipr
