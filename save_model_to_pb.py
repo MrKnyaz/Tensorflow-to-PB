@@ -10,7 +10,7 @@ def create_and_save_model():
     W = tf.get_variable("W", [4, 3], initializer=tf.zeros_initializer())  # W parameters with shape [4, 3]
     b = tf.get_variable("b", [3], initializer=tf.zeros_initializer())  # bias
     Z = tf.add(tf.matmul(X, W), b, name="not_activated_output")  # in case we want to check values without activation function
-    A = tf.nn.relu(Z, "output")
+    A = tf.nn.sigmoid(Z, "output")
 
     # to save model we need session
     with tf.Session() as sess:
