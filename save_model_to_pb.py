@@ -31,7 +31,7 @@ def create_and_save_model():
 def save_to_pb(sess):
     output_node_names = "not_activated_output,output"
 
-    # Web have to convert all variables to constants for easy use in other languages,
+    # We have to convert all variables to constants for easy use in other languages,
     # in this case no additional ./variables folder will be created
     # all data will be stored in a single .pb file
     output_graph_def = graph_util.convert_variables_to_constants(
@@ -39,8 +39,8 @@ def save_to_pb(sess):
         tf.get_default_graph().as_graph_def(),              # also graph definition is necessary
         output_node_names.split(",")                        # we may use multiple nodes for output
     )
-    output_graph = "./saved_model.pb"
-    with tf.gfile.GFile(output_graph, "wb") as f:
+    model_file = "./saved_model.pb"
+    with tf.gfile.GFile(model_file, "wb") as f:
         f.write(output_graph_def.SerializeToString())       # That's it!
 
 
